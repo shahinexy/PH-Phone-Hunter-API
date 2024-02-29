@@ -1,15 +1,21 @@
-const myData = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+const myData = async (searchText) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phoens = data.data
     getphoneCard(phoens)
 }
-myData()
 
+// get all phone card
 function getphoneCard(phones) {
     const cardContainer = document.getElementById('card_container');
+    // clear card container before showing new search result.
+    cardContainer.textContent = '';
+
+    console.log(phones);
+    // display only 12 cards
+    phones = phones.slice(0,12);
+    
     for (const phone of phones) {
-        console.log(phone);
         const div = document.createElement('div');
         div.innerHTML = `
         <div class="card pt-3 bg-base-100 shadow-xl">
@@ -24,7 +30,12 @@ function getphoneCard(phones) {
         </div>
       </div>
         `
-
         cardContainer.appendChild(div);
     }
+}
+
+// phone search fild
+const searchFild = document.getElementById('search_fild')
+function searchBtn(){
+    myData(searchFild.value)
 }
