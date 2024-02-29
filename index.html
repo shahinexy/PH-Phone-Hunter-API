@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-black">
-    <header class="container max-w-7xl mx-auto py-3 ">
+    <header class="container max-w-7xl mx-auto py-3 px-3">
         <nav class="flex justify-between bg-slate-900 p-5 rounded-lg">
             <h1 class="text-2xl text-yellow-500 font-semibold">Shining Phones</h1>
             <button class="btn bg-yellow-500 text-black text-xl font-semibold px-6">Sing Up</button>
@@ -27,14 +27,16 @@
         </div>
     </header>
     <!-- main area -->
-    <main class="container max-w-7xl mx-auto py-7">
+    <main class="container max-w-7xl mx-auto py-7 px-3">
         <!-- search fild  -->
         <section>
             <div class="text-center space-y-7 my-5 flex flex-col justify-center items-center">
                 <h2 class="text-white text-3xl font-bold">Seach Your Phone</h2>
                 <div class="p2 bg-yellow-100 md:w-1/3  flex justify-between">
-                    <input id="search_fild" class="bg-yellow-100 text-black w-full px-8" type="text" placeholder="Search...">
-                    <button id="search_btn" onclick="searchBtn()" class="btn rounded-none border-none bg-yellow-500 text-black text-xl font-semibold px-8">Search</button>
+                    <input id="search_fild" class="bg-yellow-100 text-black w-full px-8" type="text"
+                        placeholder="Search...">
+                    <button id="search_btn" onclick="searchBtn()"
+                        class="btn rounded-none border-none bg-yellow-500 text-black text-xl font-semibold px-8">Search</button>
                 </div>
             </div>
         </section>
@@ -46,12 +48,26 @@
             </div>
 
             <div id="card_container" class="grid md:grid-cols-2 lg:grid-cols-3  grid-cols-1 gap-5">
-
+                <!-- --------------------- -->
             </div>
             <!-- show more btn  -->
             <div class="flex justify-center">
-                <button onclick="showAll()" id="show_more_btn" class="hidden btn bg-yellow-500 text-black text-xl font-semibold px-6 my-7">Show All</button>
+                <button onclick="showAll()" id="show_more_btn"
+                    class="hidden btn bg-yellow-500 text-black text-xl font-semibold px-6 my-7">Show All</button>
             </div>
+
+            <!-- show modal  -->
+            <!-- You can open the modal using ID.showModal() method -->
+            <dialog id="my_modal" class="modal">
+                <div class="modal-box">
+                    <form method="dialog">
+                        <button class="btn btn-sm btn-circle btn-ghost  absolute right-2 top-2">✕</button>
+                    </form>                    
+                    <div id="modal_details">
+                        <!-- -------------- -->
+                    </div>
+                </div>
+            </dialog>
         </section>
     </main>
     <!-- footer area -->
