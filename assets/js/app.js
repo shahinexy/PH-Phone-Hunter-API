@@ -1,12 +1,12 @@
-const myData = async (searchText) => {
+const myData = async (searchText, isShowAll) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phoens = data.data
-    getphoneCard(phoens)
+    getphoneCard(phoens, isShowAll)
 }
 
 // get all phone card
-function getphoneCard(phones) {
+function getphoneCard(phones, isShowAll) {
     const cardContainer = document.getElementById('card_container');
     // clear card container before showing new search result.
     cardContainer.textContent = '';
@@ -21,8 +21,13 @@ function getphoneCard(phones) {
         showMoreBtn.classList.add('hidden')
     }
 
-    // display only 12 cards
-    phones = phones.slice(0,12);
+    // display only 12 cards if isShowAll if false
+    if(!isShowAll){
+        phones = phones.slice(0,12);
+    }
+    else{
+        showMoreBtn.classList.add('hidden')
+    }
 
     //append cards
     for (const phone of phones) {
@@ -49,9 +54,9 @@ function getphoneCard(phones) {
 
 // phone search fild
 const searchFild = document.getElementById('search_fild')
-function searchBtn(){
+function searchBtn(isShowAll){
     loadingTime(true);
-    myData(searchFild.value)
+    myData(searchFild.value, isShowAll)
 }
 
 function loadingTime(isload){
@@ -66,10 +71,7 @@ function loadingTime(isload){
 
 
 
-// show more btn
-// const showAll = true;
-// function showMore(){
-//     if(showAll){
-
-//     }
-// }
+// show All btn
+function showAll(){
+    searchBtn(true);
+}
