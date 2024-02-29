@@ -98,10 +98,4 @@ function showAll(){
     searchBtn(true);
 }
 
-myData()
-
-function setInnerText(id, value){
-    const result = document.getElementById(id).innerText;
-    result = value;
-    return result
-}
+window.onload = myData();
