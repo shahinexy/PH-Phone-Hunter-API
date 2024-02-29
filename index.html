@@ -8,6 +8,12 @@
     <!-- daisy ui & tailwind cdn  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body class="bg-black">
@@ -22,7 +28,9 @@
             <p class="md:px-20 ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et quae nam neque dolorum
                 repellendus perspiciatis numquam quod nulla exercitationem! Omnis incidunt illum atque quibusdam
                 deleniti facilis aut a in soluta?</p>
-            <buttoncla class="btn bg-yellow-500 text-black text-xl font-semibold px-6">Buy Now</buttoncla>
+                <a href="#phones">
+                    <buttoncla class="btn bg-yellow-500 text-black text-xl font-semibold px-6">Buy Now</buttoncla>
+                </a>
             <div class="flex justify-center"><img src="assets/images/bener.png" alt=""></div>
         </div>
     </header>
@@ -31,7 +39,7 @@
         <!-- search fild  -->
         <section>
             <div class="text-center space-y-7 my-5 flex flex-col justify-center items-center">
-                <h2 class="text-white text-3xl font-bold">Seach Your Phone</h2>
+                <h2 id="phones" class="text-white text-3xl font-bold">Seach Your Phone</h2>
                 <div class="p2 bg-yellow-100 md:w-1/3  flex justify-between">
                     <input id="search_fild" class="bg-yellow-100 text-black w-full px-8" type="text"
                         placeholder="Search...">
@@ -62,7 +70,7 @@
                 <div class="modal-box">
                     <form method="dialog">
                         <button class="btn btn-sm btn-circle btn-ghost  absolute right-2 top-2">✕</button>
-                    </form>                    
+                    </form>
                     <div id="modal_details">
                         <!-- -------------- -->
                     </div>
