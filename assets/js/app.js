@@ -24,6 +24,7 @@ function getphoneCard(phones) {
     // display only 12 cards
     phones = phones.slice(0,12);
 
+    //append cards
     for (const phone of phones) {
         const div = document.createElement('div');
         div.innerHTML = `
@@ -41,13 +42,29 @@ function getphoneCard(phones) {
         `
         cardContainer.appendChild(div);
     }
+
+    // end loading time
+    loadingTime(false);
 }
 
 // phone search fild
 const searchFild = document.getElementById('search_fild')
 function searchBtn(){
+    loadingTime(true);
     myData(searchFild.value)
 }
+
+function loadingTime(isload){
+    const loading = document.getElementById('loading_time');
+    if(isload){
+        loading.classList.remove('hidden')
+    }
+    else{
+        loading.classList.add('hidden')
+    }
+}
+
+
 
 // show more btn
 // const showAll = true;
